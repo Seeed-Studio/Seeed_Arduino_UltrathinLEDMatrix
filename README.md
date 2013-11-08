@@ -1,5 +1,8 @@
-LED Matrix library for http://www.seeedstudio.com/depot/ultrathin-16x32-red-led-matrix-panel-p-1582.html
-The LED Matrix panel has 32x16 pixels. Several panel can be combined together as a large screen.
+This is an Arduino library for [Ultrathin 32x16 LED Matrix](http://goo.gl/y6VnO6).
+
+[![Ultrathin 32x16 LED Matrix](http://www.seeedstudio.com/document/pics/led.jpg)](http://goo.gl/y6VnO6)
+
+Several panels can be combined together as a large screen.
 
 ```
 Coordinate & Connection (Arduino -> panel 0 -> panel 1 -> ...)
@@ -13,3 +16,5 @@ Coordinate & Connection (Arduino -> panel 0 -> panel 1 -> ...)
     +--------+--------+--------+
                             (96, 32)
 ```
+
+If you use the LED matrix with [mbed platform](http://goo.gl/WHtyuH), [another library](https://mbed.org/users/yihui/notebook/ultrathin-32x16-led-matrix/) is for you.
