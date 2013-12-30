@@ -68,8 +68,8 @@ void LEDMatrix::drawPoint(uint16_t x, uint16_t y, uint8_t pixel)
     ASSERT(width > x);
     ASSERT(height > y);
 
-    uint8_t *byte = displaybuf + x * 8 + y / 8;
-    uint8_t  bit = y % 8;
+    uint8_t *byte = displaybuf + x / 8 + y * 8;
+    uint8_t  bit = x % 8;
 
     if (pixel) {
         *byte |= 0x80 >> bit;
@@ -87,17 +87,15 @@ void LEDMatrix::drawRect(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uin
     }
 }
 
-void LEDMatrix::drawImage(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint8_t *image)
+void LEDMatrix::drawImage(uint16_t xoffset, uint16_t yoffset, uint16_t width, uint16_t height, const uint8_t *image)
 {
-    ASSERT(0 == ((x2 - x1) % 8));
-
-    for (uint16_t x = x1; x < x2; x++) {
-        for (uint16_t y = y1; y < y2; y++) {
-            uint8_t *byte = image + x * 8 + y / 8;
-            uint8_t  bit = 7 - (y % 8);
+    for (uint16_t y = 0; y < height; y++) {
+        for (uint16_t x = 0; x < width; x++) {
+            const uint8_t *byte = image + (x + y * width) / 8;
+            uint8_t  bit = 7 - x % 8;
             uint8_t  pixel = (*byte >> bit) & 1;
 
-            drawPoint(x, y, pixel);
+            drawPoint(x + xoffset, y + yoffset, pixel);
         }
     }
 }

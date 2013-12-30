@@ -53,11 +53,11 @@ public:
 
     /**
      * draw a image
-     * @param (x1, y1)   top-left position
-     * @param (x2, y2)   bottom-right position, not included in the rect
+     * @param (xoffset, yoffset)   top-left offset of image
+     * @param (width, height)      image's width and height
      * @param pixels     contents, 1 bit to 1 led
      */
-    void drawImage(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, uint8_t *image);
+    void drawImage(uint16_t xoffset, uint16_t yoffset, uint16_t width, uint16_t height, const uint8_t *image);
 
     /**
      * Set screen buffer to zero
