@@ -68,7 +68,7 @@ void LEDMatrix::drawPoint(uint16_t x, uint16_t y, uint8_t pixel)
     ASSERT(width > x);
     ASSERT(height > y);
 
-    uint8_t *byte = displaybuf + x / 8 + y * 8;
+    uint8_t *byte = displaybuf + x / 8 + y * width / 8;
     uint8_t  bit = x % 8;
 
     if (pixel) {
@@ -121,7 +121,7 @@ uint8_t LEDMatrix::isReversed()
 
 void LEDMatrix::scan()
 {
-    static uint8_t row = 0;
+    static uint8_t row = 0;  // from 0 to 15
 
     if (!state) {
         return;
@@ -130,12 +130,12 @@ void LEDMatrix::scan()
     uint8_t *head = displaybuf + row * (width / 8);
     for (uint8_t line = 0; line < (height / 16); line++) {
         uint8_t *ptr = head;
-        head += line * width * 2;
+        head += width * 2;              // width * 16 / 8
 
         for (uint8_t byte = 0; byte < (width / 8); byte++) {
             uint8_t pixels = *ptr;
             ptr++;
-            pixels = pixels ^ mask;   // reverse: mask = 0xff, normal: mask =0x00 
+            pixels = pixels ^ mask;     // reverse: mask = 0xff, normal: mask =0x00 
             for (uint8_t bit = 0; bit < 8; bit++) {
                 digitalWrite(clk, LOW);
                 digitalWrite(r1, pixels & (0x80 >> bit));
