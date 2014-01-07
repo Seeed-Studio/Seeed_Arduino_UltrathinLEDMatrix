@@ -13,9 +13,6 @@
  *     +--------+--------+--------+
  *                             (96, 32)
  *
- * Note:
- * The example is for leonardo/micro/mega and depends on Timer3 library (https://github.com/nuskunetworks/arduino_timerthree).
- * Please download Timer3 library and put it into Arduino's libraries.
  */
 
 #include "LEDMatrix.h"
