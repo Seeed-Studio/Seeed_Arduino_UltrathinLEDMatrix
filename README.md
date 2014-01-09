@@ -20,10 +20,16 @@ Coordinate & Connection (Arduino -> panel 0 -> panel 1 -> ...)
                             (96, 32)
 ```
 
+#### Pins  
++ A, B, C, D - line select for two 74HC138
++ OE - Ouput Enable(active low) for 74HC595
++ STB - data latch for 74HC595
++ CLK - shift register clock input for 74HC595
+
 If you use the LED matrix with [mbed platform](http://goo.gl/WHtyuH), [another library](https://mbed.org/users/yihui/notebook/ultrathin-32x16-led-matrix/) is for you.
 
 
-## Usage
+### Usage
 ```
 #include "LEDMatrix.h"
 
@@ -56,7 +62,7 @@ void loop() {
 ----
 
 This library is written by Yihui Xiong for seeed studio<br>
-and is licensed under [The Apache License](http://opensource.org/licenses/mit-license.phphttp://www.apache.org/licenses/LICENSE-2.0). Check License.txt for more information.<br>
+and is licensed under [The Apache License](http://opensource.org/licenses/mit-license.phphttp://www.apache.org/licenses/LICENSE-2.0). <br>
 
 Contributing to this software is warmly welcomed. You can do this basically by<br>
 [forking](https://help.github.com/articles/fork-a-repo), committing modifications and then [pulling requests](https://help.github.com/articles/using-pull-requests) (follow the links above<br>
