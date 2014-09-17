@@ -1,7 +1,7 @@
 /**
  * LED Matrix library for http://www.seeedstudio.com/depot/ultrathin-16x32-red-led-matrix-panel-p-1582.html
  * The LED Matrix panel has 32x16 pixels. Several panel can be combined together as a large screen.
- * 
+ *
  * Coordinate & Connection (Arduino -> panel 0 -> panel 1 -> ...)
  *   (0, 0)                                     (0, 0)
  *     +--------+--------+--------+               +--------+--------+
@@ -15,7 +15,7 @@
  *  Copyright (c) 2013 Seeed Technology Inc.
  *  @auther     Yihui Xiong
  *  @date       Nov 8, 2013
- *  @license    Apache
+ *  @license    MIT
  */
 
 #include "LEDMatrix.h"
@@ -135,7 +135,7 @@ void LEDMatrix::scan()
         for (uint8_t byte = 0; byte < (width / 8); byte++) {
             uint8_t pixels = *ptr;
             ptr++;
-            pixels = pixels ^ mask;     // reverse: mask = 0xff, normal: mask =0x00 
+            pixels = pixels ^ mask;     // reverse: mask = 0xff, normal: mask =0x00
             for (uint8_t bit = 0; bit < 8; bit++) {
                 digitalWrite(clk, LOW);
                 digitalWrite(r1, pixels & (0x80 >> bit));
@@ -155,6 +155,7 @@ void LEDMatrix::scan()
     // latch data
     digitalWrite(stb, LOW);
     digitalWrite(stb, HIGH);
+    digitalWrite(stb, LOW);
 
     digitalWrite(oe, LOW);              // enable display
 
@@ -171,4 +172,3 @@ void LEDMatrix::off()
     state = 0;
     digitalWrite(oe, HIGH);
 }
-

@@ -62,7 +62,7 @@ void loop() {
 ----
 
 This library is written by Yihui Xiong for seeed studio<br>
-and is licensed under [The Apache License](http://opensource.org/licenses/mit-license.phphttp://www.apache.org/licenses/LICENSE-2.0). <br>
+and is licensed under [The MIT License](http://opensource.org/licenses/mit-license.php).
 
 Contributing to this software is warmly welcomed. You can do this basically by<br>
 [forking](https://help.github.com/articles/fork-a-repo), committing modifications and then [pulling requests](https://help.github.com/articles/using-pull-requests) (follow the links above<br>
