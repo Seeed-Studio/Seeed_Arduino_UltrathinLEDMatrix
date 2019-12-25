@@ -1,0 +1,22 @@
+{
+  "name": "Ultrathin_LED_Matrix",
+  "keywords": "led-matrix, seeedstudio",
+  "description": "This is an Arduino library for Ultrathin 32x16 LED Matrix",
+  "repository":
+  {
+    "type": "git",
+    "url": "https://github.com/Seeed-Studio/Ultrathin_LED_Matrix.git"
+  },
+  "authors":
+  [
+    {
+      "name": "Yihui Xiong",
+      "email": "techsupport@seeed.cc",
+      "url": "https://www.seeedstudio.com",
+      "maintainer": true
+    }
+  ],
+  "version": "0.1.0",
+  "frameworks": "arduino",
+  "platforms": "espressif32"
+}
